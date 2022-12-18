@@ -138,3 +138,10 @@ Finally, you can create a video of your model's inferences for any tf record fil
 python inference_video.py --labelmap_path label_map.pbtxt --model_path experiments/reference/exported/saved_model --tf_record_path /data/waymo/testing/segment-12200383401366682847_2552_140_2572_140_with_camera_labels.tfrecord --config_path experiments/reference/pipeline_new.config --output_path animation.gif
 ```
 
+Some animations examples are shown below.
+
+![](images/animation1.gif)
+
+![](images/animation2.gif)
+
+![](images/animation3.gif)
