@@ -54,9 +54,26 @@ Some sample anotated images from the dataset.
 
 | ![](images/eda1.png)  |  ![](images/eda2.png) |
 :-------------------------:|:-------------------------:
-| ![](images/eda3.png)  |  ![](images/eda4.png) |
+| ![](images/eda3.png)  |  ![](images/eda5.png) |
 
+### Data Augmentation Analysis
 
+Several data augmentation were tried.
+
+* random_horizontal_flip
+* random_crop_image
+* random_rgb_to_gray
+* random_adjust_contrast
+* random_adjust_brightness
+
+With such augmentations different lighting conditions can be replicated and brings a variation to the training dataset.
+
+Some sample images from the data augmentations are shown below.
+
+| ![](images/da1.png)  |  ![](images/da7.png) |
+:-------------------------:|:-------------------------:
+| ![](images/da2.png)  |  ![](images/da4.png) |
+| ![](images/da5.png)  |  ![](images/da6.png) |
 
 ### Create the training - validation splits
 In the class, we talked about cross-validation and the importance of creating meaningful training and validation splits. For this project, you will have to create your own training and validation sets using the files located in `/home/workspace/data/waymo`. The `split` function in the `create_splits.py` file does the following:
