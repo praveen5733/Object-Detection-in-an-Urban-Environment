@@ -46,9 +46,16 @@ experiments/
 
  <img src="images/eda4.png" width=50% height=50%>
 
-Used random 30k samples from the dataset to analyse.
+Used random samples from the dataset to analyse.
 
 Dataset is very skewed in terms of number of samples available for each class. Class 1 of cars have maximum samples. Class 4 of cyclists is very rare in the dataset, followed by Class 2 of pedestrians.
+
+Some sample anotated images from the dataset.
+
+| ![](images/eda1.png)  |  ![](images/eda2.png) |
+:-------------------------:|:-------------------------:
+| ![](images/eda3.png)  |  ![](images/eda4.png) |
+
 
 
 ### Create the training - validation splits
