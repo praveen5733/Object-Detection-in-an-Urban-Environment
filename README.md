@@ -121,7 +121,7 @@ Training curves of Imporved experiment.
 | ![](images/lossImp3.png)  |  ![](images/lossImp4.png) |
 | ![](images/lossImp5.png)  |   |
 
-With the addition of the data augmentations , adjusted learning rate and training for longer iterations we can see the loss is converging.
+With the addition of the data augmentations , adjusted learning rate, batch size increased to 4 and training for longer iterations we can see the loss is converging.
 
 ### Creating an animation
 #### Export the trained model
