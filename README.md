@@ -1,14 +1,18 @@
 # Object Detection in an Urban Environment
 
+# Project Overview
+
+The goal of this project is to classify and localize the cars, pedestrians and cyclists in camera input feed. 
+This is an important task in an autonomous vehicle since it helps understand the traffic partipants in the 
+scene.
+
+
+
+# Setup
+
 ## Data
 
 For this project, we will be using data from the [Waymo Open dataset](https://waymo.com/open/).
-
-
-
-## Structure
-
-### Data
 
 The data you will use for training, validation and testing is organized as follow:
 ```
@@ -23,7 +27,7 @@ The `training_and_validation` folder contains file that have been downsampled: w
 
 You will split this `training_and_validation` data into `train`, and `val` sets by completing and executing the `create_splits.py` file.
 
-### Experiments
+
 The experiments folder will be organized as follow:
 ```
 experiments/
@@ -38,7 +42,7 @@ experiments/
     ...
 ```
 
-
+# Dataset
 
 ## Data Analysis
 
@@ -56,28 +60,11 @@ Some sample anotated images from the dataset.
 :-------------------------:|:-------------------------:
 | ![](images/eda3.png)  |  ![](images/eda5.png) |
 
-### Data Augmentation Analysis
-
-Several data augmentation were tried.
-
-* random_horizontal_flip
-* random_crop_image
-* random_rgb_to_gray
-* random_adjust_contrast
-* random_adjust_brightness
-
-With such augmentations different lighting conditions can be replicated and brings a variation to the training dataset.
-
-Some sample images from the data augmentations are shown below.
-
-| ![](images/da1.png)  |  ![](images/da7.png) |
-:-------------------------:|:-------------------------:
-| ![](images/da2.png)  |  ![](images/da4.png) |
-| ![](images/da5.png)  |  ![](images/da6.png) |
 
 
+# Training
 
-### Edit the config file
+## Edit the config file
 
 
 
@@ -91,7 +78,8 @@ A new config file has been created, `pipeline_new.config`.
 
 This new config file augmentations can be added to create improved experiments.
 
-### Training
+
+## launching the training
 
 You will now launch your very first experiment with the Tensorflow object detection API. Move the `pipeline_new.config` to the `/home/workspace/experiments/exp1` folder. Now launch the training process:
 
@@ -112,8 +100,44 @@ python experiments/model_main_tf2.py --model_dir=experiments/reference/ --pipeli
 
 To monitor the training, you can launch a tensorboard instance by running `python -m tensorboard.main --logdir experiments/reference/`. You will report your findings in the writeup.
 
-### Experiment
+## Experiments
 
+First we trained the model with the default configurations.
+We observe that the loss reduction is still very fluctuating , noisy and have high values.
+
+
+### Reference Experiments
+
+| ![](images/ref1.png)  |  ![](images/ref2.png) |
+:-------------------------:|:-------------------------:
+| ![](images/ref3.png)  |  ![](images/ref4.png) |
+| ![](images/ref5.png)  |   |
+
+
+### Data Augmentation Analysis
+To improve the experiments.
+Several data augmentation were tried.
+
+Surfing through the dataset suggests fewer samples in darker/foggy conditions compared to day/clear conditions. So, random brightness, contrast and color shift should help.
+
+* random_horizontal_flip
+* random_crop_image
+* random_rgb_to_gray
+* random_adjust_contrast
+* random_adjust_brightness
+
+ 
+
+With such augmentations different lighting conditions can be replicated and brings a variation to the training dataset.
+
+Some sample images from the data augmentations are shown below.
+
+| ![](images/da1.png)  |  ![](images/da7.png) |
+:-------------------------:|:-------------------------:
+| ![](images/da2.png)  |  ![](images/da4.png) |
+| ![](images/da5.png)  |  ![](images/da6.png) |
+
+### Improve on the reference
 Training curves of Imporved experiment.
 
 | ![](images/lossImp1.png)  |  ![](images/lossImp2.png) |
@@ -121,7 +145,7 @@ Training curves of Imporved experiment.
 | ![](images/lossImp3.png)  |  ![](images/lossImp4.png) |
 | ![](images/lossImp5.png)  |   |
 
-With the addition of the data augmentations , adjusted learning rate, batch size increased to 4 and training for longer iterations we can see the loss is converging.
+With the addition of the data augmentations , adjusted learning rate, batch size increased to 4 and training for longer iterations we can see the loss is converging.  Although, training loss is still decreasing, but validation loss and mAP have plateaued. So, further training would overfit the dataset.
 
 ### Creating an animation
 #### Export the trained model
