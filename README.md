@@ -119,6 +119,7 @@ To improve the experiments.
 Several data augmentation were tried.
 
 Surfing through the dataset suggests fewer samples in darker/foggy conditions compared to day/clear conditions. So, random brightness, contrast and color shift should help.
+So I tried adding the following augmentation techniques.
 
 * random_horizontal_flip
 * random_crop_image
@@ -145,7 +146,8 @@ Training curves of Imporved experiment.
 | ![](images/lossImp3.png)  |  ![](images/lossImp4.png) |
 | ![](images/lossImp5.png)  |   |
 
-With the addition of the data augmentations , adjusted learning rate, batch size increased to 4 and training for longer iterations we can see the loss is converging.  Although, training loss is still decreasing, but validation loss and mAP have plateaued. So, further training would overfit the dataset.
+With the addition of the data augmentations , adjusted learning rate, batch size increased to 4 and training for longer iterations we can see the loss is converging. The loss convergence is less fluctuating now. The blue dot represent the evaluation loss which is also now close to training loss.
+  Although, training loss is still decreasing, but validation loss and mAP have plateaued. So, further training would overfit the dataset.
 
 ### Creating an animation
 #### Export the trained model
